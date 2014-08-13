@@ -46,3 +46,48 @@ Conclusão
 =========
 
 Por enquanto é só uma ideia, mas de acordo com que a implementação for sendo feita, a documentação será atualizada.
+
+Mas basicamente você poderá criar seu projeto:
+
+#### project.json
+```json
+{
+    "version": "1.0.0-*",
+    "dependencies": {
+        "E5R.Krunt": "1.0.0-*",
+    },
+    "commands": {
+        "krunt": "E5R.Krunt"
+    }
+}
+```
+
+#### krunt.json
+```json
+{
+  plugins: ['krunt-uglify'],
+  defaultTask: ['uglify'],
+  tasks: {
+    uglify: {
+      options: {
+        banner: '/*! My Project <%= project.version %> */\n'
+      },
+      build: {
+        src: 'src/<%= project.name %>.js',
+        dest: 'build/<%= project.name %>.min.js'
+      }
+    }
+  }
+}
+```
+
+E na linha de comando você pode executar uma tarefa específica (ex: `uglify`):
+
+```bash
+k krunt uglify
+```
+
+Ou executar a tarefa padrão `defaultTask` => `uglify`:
+```
+k krunt
+```
