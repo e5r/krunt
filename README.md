@@ -63,7 +63,7 @@ Mas basicamente você poderá criar seu projeto:
 ```
 
 #### krunt.json
-```javascript
+```json
 {
   plugins: ['krunt-uglify'],
   defaultTask: ['uglify'],
