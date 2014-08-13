@@ -65,16 +65,16 @@ Mas basicamente você poderá criar seu projeto:
 #### krunt.json
 ```json
 {
-  "plugins": ['krunt-uglify'],
-  "defaultTask": ['uglify'],
+  "plugins": ["krunt-uglify"],
+  "defaultTask": ["uglify"],
   "tasks": {
     "uglify": {
       "options": {
-        "banner": '/*! My Project <%= project.version %> */\n'
+        "banner": "/*! My Project <%= project.version %> */\n"
       },
       "build": {
-        "src": 'src/<%= project.name %>.js',
-        "dest": 'build/<%= project.name %>.min.js'
+        "src": "src/<%= project.name %>.js",
+        "dest": "build/<%= project.name %>.min.js"
       }
     }
   }
