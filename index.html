@@ -72,6 +72,84 @@ Ex:</p>
 <a name="conclus%C3%A3o" class="anchor" href="#conclus%C3%A3o"><span class="octicon octicon-link"></span></a>Conclusão</h1>
 
 <p>Por enquanto é só uma ideia, mas de acordo com que a implementação for sendo feita, a documentação será atualizada.</p>
+
+<p>Mas basicamente você poderá criar seu projeto:</p>
+
+<h4>
+<a name="projectjson" class="anchor" href="#projectjson"><span class="octicon octicon-link"></span></a>project.json</h4>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"version"</span><span class="p">:</span> <span class="s2">"1.0.0-*"</span><span class="p">,</span>
+    <span class="nt">"dependencies"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"E5R.Krunt"</span><span class="p">:</span> <span class="s2">"1.0.0-*"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nt">"commands"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"krunt"</span><span class="p">:</span> <span class="s2">"E5R.Krunt"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4>
+<a name="kruntjson" class="anchor" href="#kruntjson"><span class="octicon octicon-link"></span></a>krunt.json</h4>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+  <span class="nt">"plugins"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"krunt-uglify"</span><span class="p">],</span>
+  <span class="nt">"defaultTask"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uglify"</span><span class="p">],</span>
+  <span class="nt">"tasks"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">"uglify"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">"options"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"banner"</span><span class="p">:</span> <span class="s2">"/*! My Project &lt;%= project.version %&gt; */\n"</span>
+      <span class="p">},</span>
+      <span class="nt">"build"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"src"</span><span class="p">:</span> <span class="s2">"src/&lt;%= project.name %&gt;.js"</span><span class="p">,</span>
+        <span class="nt">"dest"</span><span class="p">:</span> <span class="s2">"build/&lt;%= project.name %&gt;.min.js"</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>E na linha de comando você pode executar uma tarefa específica (ex: <code>uglify</code>):</p>
+
+<pre><code>k krunt uglify
+</code></pre>
+
+<p>Ou executar a tarefa padrão <code>defaultTask</code> =&gt; <code>uglify</code>:</p>
+
+<pre><code>k krunt
+</code></pre>
+
+<p>Uma opção também será fazer um <em>híbrido</em>, onde o <code>project.json</code> possa também ser usado como arquivo <strong>Krunt</strong>.
+Ex:</p>
+
+<h4>
+<a name="projectjson-1" class="anchor" href="#projectjson-1"><span class="octicon octicon-link"></span></a>project.json</h4>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"version"</span><span class="p">:</span> <span class="s2">"1.0.0-*"</span><span class="p">,</span>
+    <span class="nt">"dependencies"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"E5R.Krunt"</span><span class="p">:</span> <span class="s2">"1.0.0-*"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nt">"commands"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"krunt"</span><span class="p">:</span> <span class="s2">"E5R.Krunt"</span>
+    <span class="p">},</span>
+    <span class="nt">"krunt"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">"plugins"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"krunt-uglify"</span><span class="p">],</span>
+      <span class="nt">"defaultTask"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uglify"</span><span class="p">],</span>
+      <span class="nt">"tasks"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"uglify"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">"options"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"banner"</span><span class="p">:</span> <span class="s2">"/*! My Project &lt;%= project.version %&gt; */\n"</span>
+          <span class="p">},</span>
+          <span class="nt">"build"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"src"</span><span class="p">:</span> <span class="s2">"src/&lt;%= project.name %&gt;.js"</span><span class="p">,</span>
+            <span class="nt">"dest"</span><span class="p">:</span> <span class="s2">"build/&lt;%= project.name %&gt;.min.js"</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
         </section>
 
         <footer>
