@@ -83,11 +83,11 @@ Mas basicamente você poderá criar seu projeto:
 
 E na linha de comando você pode executar uma tarefa específica (ex: `uglify`):
 
-```bash
+```shell
 k krunt uglify
 ```
 
 Ou executar a tarefa padrão `defaultTask` => `uglify`:
-```
+```batchfile
 k krunt
 ```
