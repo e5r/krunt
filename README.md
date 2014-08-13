@@ -91,3 +91,34 @@ Ou executar a tarefa padrão `defaultTask` => `uglify`:
 ```
 k krunt
 ```
+
+Uma opção também será fazer um _híbrido_, onde o `project.json` possa também ser usado como arquivo __Krunt__.
+Ex:
+
+#### project.json
+```json
+{
+    "version": "1.0.0-*",
+    "dependencies": {
+        "E5R.Krunt": "1.0.0-*",
+    },
+    "commands": {
+        "krunt": "E5R.Krunt"
+    },
+    "krunt": {
+      "plugins": ["krunt-uglify"],
+      "defaultTask": ["uglify"],
+      "tasks": {
+        "uglify": {
+          "options": {
+            "banner": "/*! My Project <%= project.version %> */\n"
+          },
+          "build": {
+            "src": "src/<%= project.name %>.js",
+            "dest": "build/<%= project.name %>.min.js"
+          }
+        }
+      }
+    }
+}
+```
