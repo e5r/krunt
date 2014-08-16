@@ -1,4 +1,4 @@
-krunt
+Krunt
 =====
 
 _Port do Grunt.js para a nova tecnologia Microsoft .NET vNext._
@@ -34,7 +34,6 @@ Também executa código:
 
 ```javascript
 grunt.loadNpmTasks('grunt-contrib-uglify');
-
 grunt.registerTask('default', ['uglify']);
 ```
 
@@ -42,7 +41,7 @@ Com o __Krunt__ pretendo fazer um pouco diferente, mantendo a configuração em 
 
 As tarefas (aqui leia-se plugin) por sua vez podem ser extendidas, ou seja, poderão ser criadas novas tarefas.
 
-Conclusão
+Resumo
 =========
 
 Por enquanto é só uma ideia, mas de acordo com que a implementação for sendo feita, a documentação será atualizada.
@@ -65,19 +64,19 @@ Mas basicamente você poderá criar seu projeto:
 #### krunt.json
 ```json
 {
-  "plugins": ["krunt-uglify"],
-  "defaultTask": ["uglify"],
-  "tasks": {
-    "uglify": {
-      "options": {
-        "banner": "/*! My Project <%= project.version %> */\n"
-      },
-      "build": {
-        "src": "src/<%= project.name %>.js",
-        "dest": "build/<%= project.name %>.min.js"
-      }
+    "plugins": ["krunt-uglify"],
+    "defaultTask": ["uglify"],
+    "tasks": {
+        "uglify": {
+            "options": {
+                "banner": "/*! My Project <%= project.version %> */\n"
+            },
+            "build": {
+                "src": "src/<%= project.name %>.js",
+                "dest": "build/<%= project.name %>.min.js"
+            }
+        }
     }
-  }
 }
 ```
 
@@ -88,6 +87,7 @@ k krunt uglify
 ```
 
 Ou executar a tarefa padrão `defaultTask` => `uglify`:
+
 ```
 k krunt
 ```
@@ -106,19 +106,19 @@ Ex:
         "krunt": "E5R.Krunt"
     },
     "krunt": {
-      "plugins": ["krunt-uglify"],
-      "defaultTask": ["uglify"],
-      "tasks": {
-        "uglify": {
-          "options": {
-            "banner": "/*! My Project <%= project.version %> */\n"
-          },
-          "build": {
-            "src": "src/<%= project.name %>.js",
-            "dest": "build/<%= project.name %>.min.js"
-          }
+        "plugins": ["krunt-uglify"],
+        "defaultTask": ["uglify"],
+        "tasks": {
+            "uglify": {
+                "options": {
+                    "banner": "/*! Project <%= project.version %> */"
+                },
+                "build": {
+                    "src": "src/<%= project.name %>.js",
+                    "dest": "build/<%= project.name %>.min.js"
+                }
+            }
         }
-      }
     }
 }
 ```
