@@ -1,0 +1,24 @@
+{
+    "authors": [
+        "Erlimar Silva Campos"
+    ],
+    "description": "Tests for E5R.Krunt",
+    "version": "0.1-aspnet-alpha3",
+    "code": "**\\*.cs",
+    "dependencies": {
+        "Moq": "4.2.1312.1622",
+        "Xunit.KRunner": "1.0.0-*"
+    },
+    "commands": {
+        "test": "Xunit.KRunner"
+    },
+    "frameworks": {
+        "net45": {
+        },
+        "k10": {
+            "dependencies": {
+                "System.Console": "4.0.0.0"
+            }
+        }
+  }
+}

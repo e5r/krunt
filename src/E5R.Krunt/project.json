@@ -1,0 +1,22 @@
+{
+    "authors": [
+        "Erlimar Silva Campos"
+    ],
+    "description": "Port of Grunt.js for the new technology Microsoft NET vNext",
+    "version": "0.1-aspnet-alpha3",
+    "code": "**\\*.cs",
+    "dependencies": {
+    },
+    "commands": {
+        "krunt": "E5R.Krunt"
+    },
+    "frameworks": {
+        "net45": {
+        },
+        "k10": {
+            "dependencies": {
+                "System.Console": "4.0.0.0"
+            }
+        }
+  }
+}
