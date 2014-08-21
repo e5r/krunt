@@ -6,6 +6,7 @@
     "version": "0.1-aspnet-alpha3",
     "code": "**\\*.cs",
     "dependencies": {
+        "Microsoft.Framework.DependencyInjection": "1.0.0-alpha4-10235"
     },
     "commands": {
         "krunt": "E5R.Krunt"
