@@ -10,7 +10,7 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Krunt by erlimar</title>
+    <title>Krunt by e5r</title>
   </head>
 
   <body>
@@ -23,9 +23,9 @@
         </header>
 
         <section id="downloads" class="clearfix">
-          <a href="https://github.com/erlimar/krunt/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/erlimar/krunt/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/erlimar/krunt" id="view-on-github" class="button"><span>View on GitHub</span></a>
+          <a href="https://github.com/e5r/krunt/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/e5r/krunt/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/e5r/krunt" id="view-on-github" class="button"><span>View on GitHub</span></a>
         </section>
 
         <hr>
@@ -40,74 +40,72 @@
 <li>Minificar</li>
 <li>Assistir (Watch)</li>
 <li>Empacotar</li>
-</ul><p>O Grunt.js se baseia em um arquivo <em>Gruntfile.js</em> que além de conter as configurações.
+</ul>
+
+<p>O Grunt.js se baseia em um arquivo <em>Gruntfile.js</em> que além de conter as configurações.
 Ex:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
-  <span class="nx">pkg</span><span class="o">:</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">readJSON</span><span class="p">(</span><span class="s1">'package.json'</span><span class="p">),</span>
-  <span class="nx">uglify</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">banner</span><span class="o">:</span> <span class="s1">'/*! &lt;%= pkg.name %&gt; My Project */\n'</span>
-    <span class="p">},</span>
-    <span class="nx">build</span><span class="o">:</span> <span class="p">{</span>
-      <span class="nx">src</span><span class="o">:</span> <span class="s1">'src/&lt;%= pkg.name %&gt;.js'</span><span class="p">,</span>
-      <span class="nx">dest</span><span class="o">:</span> <span class="s1">'build/&lt;%= pkg.name %&gt;.min.js'</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">});</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>grunt.initConfig({
+  pkg<span class="pl-k">:</span> grunt.file.readJSON(<span class="pl-s1"><span class="pl-pds">'</span>package.json<span class="pl-pds">'</span></span>),
+  uglify<span class="pl-k">:</span> {
+    options<span class="pl-k">:</span> {
+      banner<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>/*! &lt;%= pkg.name %&gt; My Project */<span class="pl-cce">\n</span><span class="pl-pds">'</span></span>
+    },
+    build<span class="pl-k">:</span> {
+      src<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>src/&lt;%= pkg.name %&gt;.js<span class="pl-pds">'</span></span>,
+      dest<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>build/&lt;%= pkg.name %&gt;.min.js<span class="pl-pds">'</span></span>
+    }
+  }
+});</pre></div>
 
 <p>Também executa código:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-contrib-uglify'</span><span class="p">);</span>
+<div class="highlight highlight-javascript"><pre>grunt.loadNpmTasks(<span class="pl-s1"><span class="pl-pds">'</span>grunt-contrib-uglify<span class="pl-pds">'</span></span>);
 
-<span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">'default'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'uglify'</span><span class="p">]);</span>
-</pre></div>
+grunt.registerTask(<span class="pl-s1"><span class="pl-pds">'</span>default<span class="pl-pds">'</span></span>, [<span class="pl-s1"><span class="pl-pds">'</span>uglify<span class="pl-pds">'</span></span>]);</pre></div>
 
 <p>Com o <strong>Krunt</strong> pretendo fazer um pouco diferente, mantendo a configuração em um arquivo de configuração chamado <em>Krunt.json</em>. Nesse caso o registro de tarefas e (talvez) o carregamento de submódulos seja feito também via arquivo de configuração.</p>
 
 <p>As tarefas (aqui leia-se plugin) por sua vez podem ser extendidas, ou seja, poderão ser criadas novas tarefas.</p>
 
 <h1>
-<a name="conclus%C3%A3o" class="anchor" href="#conclus%C3%A3o"><span class="octicon octicon-link"></span></a>Conclusão</h1>
+<a id="conclusão" class="anchor" href="#conclus%C3%A3o" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusão</h1>
 
 <p>Por enquanto é só uma ideia, mas de acordo com que a implementação for sendo feita, a documentação será atualizada.</p>
 
 <p>Mas basicamente você poderá criar seu projeto:</p>
 
 <h4>
-<a name="projectjson" class="anchor" href="#projectjson"><span class="octicon octicon-link"></span></a>project.json</h4>
+<a id="projectjson" class="anchor" href="#projectjson" aria-hidden="true"><span class="octicon octicon-link"></span></a>project.json</h4>
 
-<div class="highlight highlight-json"><pre><span class="p">{</span>
-    <span class="nt">"version"</span><span class="p">:</span> <span class="s2">"1.0.0-*"</span><span class="p">,</span>
-    <span class="nt">"dependencies"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">"E5R.Krunt"</span><span class="p">:</span> <span class="s2">"1.0.0-*"</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="nt">"commands"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">"krunt"</span><span class="p">:</span> <span class="s2">"E5R.Krunt"</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-json"><pre>{
+    <span class="pl-s1"><span class="pl-pds">"</span>version<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>1.0.0-*<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>dependencies<span class="pl-pds">"</span></span>: {
+        <span class="pl-s1"><span class="pl-pds">"</span>E5R.Krunt<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>1.0.0-*<span class="pl-pds">"</span></span>,
+    },
+    <span class="pl-s1"><span class="pl-pds">"</span>commands<span class="pl-pds">"</span></span>: {
+        <span class="pl-s1"><span class="pl-pds">"</span>krunt<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>E5R.Krunt<span class="pl-pds">"</span></span>
+    }
+}</pre></div>
 
 <h4>
-<a name="kruntjson" class="anchor" href="#kruntjson"><span class="octicon octicon-link"></span></a>krunt.json</h4>
+<a id="kruntjson" class="anchor" href="#kruntjson" aria-hidden="true"><span class="octicon octicon-link"></span></a>krunt.json</h4>
 
-<div class="highlight highlight-json"><pre><span class="p">{</span>
-  <span class="nt">"plugins"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"krunt-uglify"</span><span class="p">],</span>
-  <span class="nt">"defaultTask"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uglify"</span><span class="p">],</span>
-  <span class="nt">"tasks"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">"uglify"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">"options"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">"banner"</span><span class="p">:</span> <span class="s2">"/*! My Project &lt;%= project.version %&gt; */\n"</span>
-      <span class="p">},</span>
-      <span class="nt">"build"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">"src"</span><span class="p">:</span> <span class="s2">"src/&lt;%= project.name %&gt;.js"</span><span class="p">,</span>
-        <span class="nt">"dest"</span><span class="p">:</span> <span class="s2">"build/&lt;%= project.name %&gt;.min.js"</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-json"><pre>{
+  <span class="pl-s1"><span class="pl-pds">"</span>plugins<span class="pl-pds">"</span></span>: [<span class="pl-s1"><span class="pl-pds">"</span>krunt-uglify<span class="pl-pds">"</span></span>],
+  <span class="pl-s1"><span class="pl-pds">"</span>defaultTask<span class="pl-pds">"</span></span>: [<span class="pl-s1"><span class="pl-pds">"</span>uglify<span class="pl-pds">"</span></span>],
+  <span class="pl-s1"><span class="pl-pds">"</span>tasks<span class="pl-pds">"</span></span>: {
+    <span class="pl-s1"><span class="pl-pds">"</span>uglify<span class="pl-pds">"</span></span>: {
+      <span class="pl-s1"><span class="pl-pds">"</span>options<span class="pl-pds">"</span></span>: {
+        <span class="pl-s1"><span class="pl-pds">"</span>banner<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>/*! My Project &lt;%= project.version %&gt; */<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>
+      },
+      <span class="pl-s1"><span class="pl-pds">"</span>build<span class="pl-pds">"</span></span>: {
+        <span class="pl-s1"><span class="pl-pds">"</span>src<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>src/&lt;%= project.name %&gt;.js<span class="pl-pds">"</span></span>,
+        <span class="pl-s1"><span class="pl-pds">"</span>dest<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>build/&lt;%= project.name %&gt;.min.js<span class="pl-pds">"</span></span>
+      }
+    }
+  }
+}</pre></div>
 
 <p>E na linha de comando você pode executar uma tarefa específica (ex: <code>uglify</code>):</p>
 
@@ -123,37 +121,36 @@ Ex:</p>
 Ex:</p>
 
 <h4>
-<a name="projectjson-1" class="anchor" href="#projectjson-1"><span class="octicon octicon-link"></span></a>project.json</h4>
+<a id="projectjson-1" class="anchor" href="#projectjson-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>project.json</h4>
 
-<div class="highlight highlight-json"><pre><span class="p">{</span>
-    <span class="nt">"version"</span><span class="p">:</span> <span class="s2">"1.0.0-*"</span><span class="p">,</span>
-    <span class="nt">"dependencies"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">"E5R.Krunt"</span><span class="p">:</span> <span class="s2">"1.0.0-*"</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="nt">"commands"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">"krunt"</span><span class="p">:</span> <span class="s2">"E5R.Krunt"</span>
-    <span class="p">},</span>
-    <span class="nt">"krunt"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">"plugins"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"krunt-uglify"</span><span class="p">],</span>
-      <span class="nt">"defaultTask"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"uglify"</span><span class="p">],</span>
-      <span class="nt">"tasks"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">"uglify"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="nt">"options"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">"banner"</span><span class="p">:</span> <span class="s2">"/*! My Project &lt;%= project.version %&gt; */\n"</span>
-          <span class="p">},</span>
-          <span class="nt">"build"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">"src"</span><span class="p">:</span> <span class="s2">"src/&lt;%= project.name %&gt;.js"</span><span class="p">,</span>
-            <span class="nt">"dest"</span><span class="p">:</span> <span class="s2">"build/&lt;%= project.name %&gt;.min.js"</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-json"><pre>{
+    <span class="pl-s1"><span class="pl-pds">"</span>version<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>1.0.0-*<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>dependencies<span class="pl-pds">"</span></span>: {
+        <span class="pl-s1"><span class="pl-pds">"</span>E5R.Krunt<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>1.0.0-*<span class="pl-pds">"</span></span>,
+    },
+    <span class="pl-s1"><span class="pl-pds">"</span>commands<span class="pl-pds">"</span></span>: {
+        <span class="pl-s1"><span class="pl-pds">"</span>krunt<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>E5R.Krunt<span class="pl-pds">"</span></span>
+    },
+    <span class="pl-s1"><span class="pl-pds">"</span>krunt<span class="pl-pds">"</span></span>: {
+      <span class="pl-s1"><span class="pl-pds">"</span>plugins<span class="pl-pds">"</span></span>: [<span class="pl-s1"><span class="pl-pds">"</span>krunt-uglify<span class="pl-pds">"</span></span>],
+      <span class="pl-s1"><span class="pl-pds">"</span>defaultTask<span class="pl-pds">"</span></span>: [<span class="pl-s1"><span class="pl-pds">"</span>uglify<span class="pl-pds">"</span></span>],
+      <span class="pl-s1"><span class="pl-pds">"</span>tasks<span class="pl-pds">"</span></span>: {
+        <span class="pl-s1"><span class="pl-pds">"</span>uglify<span class="pl-pds">"</span></span>: {
+          <span class="pl-s1"><span class="pl-pds">"</span>options<span class="pl-pds">"</span></span>: {
+            <span class="pl-s1"><span class="pl-pds">"</span>banner<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>/*! My Project &lt;%= project.version %&gt; */<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>
+          },
+          <span class="pl-s1"><span class="pl-pds">"</span>build<span class="pl-pds">"</span></span>: {
+            <span class="pl-s1"><span class="pl-pds">"</span>src<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>src/&lt;%= project.name %&gt;.js<span class="pl-pds">"</span></span>,
+            <span class="pl-s1"><span class="pl-pds">"</span>dest<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>build/&lt;%= project.name %&gt;.min.js<span class="pl-pds">"</span></span>
+          }
+        }
+      }
+    }
+}</pre></div>
         </section>
 
         <footer>
-          Krunt is maintained by <a href="https://github.com/erlimar">erlimar</a><br>
+          Krunt is maintained by <a href="https://github.com/e5r">e5r</a><br>
           This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
